@@ -1,0 +1,10 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+
+        left=0
+        longest=0
+        for right in range(len(prices)):
+            if prices[right]<prices[left]:
+                left=right
+            longest=max(longest, prices[right]-prices[left])
+        return longest
